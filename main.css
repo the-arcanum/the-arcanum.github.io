@@ -36,6 +36,11 @@
   box-sizing: border-box;
 }
 
+html {
+  background-color: #000000;
+  min-height: 100vh;
+}
+
 body {
   margin: 0;
   font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
@@ -44,6 +49,7 @@ body {
   background-blend-mode: darken;
   background-color: rgba(0,0,0,0.6);
   color: var(--text);
+  min-height: 100vh;
 }
 
 h1, h2 {
