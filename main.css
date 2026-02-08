@@ -552,9 +552,17 @@ footer {
     justify-content: center;
   }
 
+  .rank-header {
+    margin-right: 0;
+  }
+
   .rank-card .region {
     flex-basis: 100%;
     margin-top: 1rem;
+  }
+
+  .mage-info h2 {
+    text-align: center;
   }
 }
 
