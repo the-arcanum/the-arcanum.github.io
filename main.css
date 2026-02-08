@@ -1,0 +1,586 @@
+:root {
+  --bg: #0d1117;
+  --panel: #161b22;
+  --panel-2: #1f2630;
+  --accent: #9d7bff;
+  --gold: #f5c15b;
+  --silver: #b7c0cc;
+  --bronze: #d08c5a;
+  --text: #e6edf3;
+  --muted: #8b949e;
+
+  --acolyte: #A3BAF3;
+  --mage: #b599b5;
+  --senior-mage: #e99090;
+  --high-mage: #9348b0;
+  --enchanter: #2f90d1;
+  --alchemist: #bb722e;
+  --artificer: #818181;
+  --healer: #c18c0b;
+  --priest: #d9d9d9;
+  --druid: #1f8b4c;
+  --arcane-knight: #b6171a;
+  --bard: #19afa2;
+  --archmage: #b865d9;
+  --grand-enchanter: #39acf8;
+  --grand-alchemist: #e38d3d;
+  --grand-artificer: #979797;
+  --grand-healer: #ffd700;
+  --high-priest: #fbfbfb;
+  --archdruid: #2ecc71;
+  --arcane-champion: #e91e22;
+  --grand-bard: #25e3d4;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background-image: url("resources/stars3.gif");
+  background-repeat: repeat;
+  background-blend-mode: darken;
+  background-color: rgba(0,0,0,0.6);
+  color: var(--text);
+}
+
+h1, h2 {
+  font-family: "Uncial Antiqua", system-ui;
+}
+
+h3, h4, p, a, div, footer, header {
+  font-family: "Asul", serif;
+}
+
+header {
+  padding: 18px 20px 14px;
+  border-bottom: 1px solid #202938;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #E3AC14;
+}
+
+header p {
+  margin-top: 0.2rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.65;
+}
+
+header h1::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 1px;
+  margin: 6px auto 10px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    #e6c56a,
+    transparent
+  );
+}
+
+header .logo {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 6px;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  padding: 12px 20px;
+  border-bottom: 1px solid #202938;
+
+  flex-wrap: wrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.tab {
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  color: var(--muted);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: 0.2s ease;
+}
+
+.tab:hover {
+  color: var(--text);
+}
+
+.tab.active {
+  background: var(--panel-2);
+  color: var(--text);
+  box-shadow: inset 0 -2px 0 var(--accent);
+}
+
+.tab a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.rank-card {
+  display: flex;
+  background: linear-gradient(
+                180deg,
+                rgba(22, 27, 34, 0.7),
+                rgba(18, 23, 34, 0.7)
+              );
+  border: 1px solid #202938;
+  border-radius: 14px;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  transition: 0.6s ease;
+}
+
+.rank-card:hover {
+    transform: translateY(-3px);
+}
+
+.rank-header {
+  overflow-y: visible;
+  max-height: 5rem;
+  display: flex;
+  flex-direction: row;
+  width: 10rem;
+  justify-content: space-between;
+  padding-left: 0.2rem;
+  margin-right: 1rem;
+  border-radius: 0.4rem;
+  background: linear-gradient(-80deg, var(--panel), #FFD700);
+}
+
+.acolyte .rank-header {
+    background: linear-gradient(-80deg, var(--panel), var(--acolyte));
+}
+
+.rank-header img {
+  height: 5.75rem;
+  width: 5.75rem;
+  transform: translateY(-0.75rem);
+}
+
+.rank-number {
+  font-size: 1.3rem;
+  line-height: 1.35rem;
+  font-weight: 700;
+  text-align: center;
+  text-shadow: 1px 1px 4px black;
+  font-style: italic;
+  min-width: 4rem;
+  align-self: center;
+}
+
+.mage-info {
+    display: flex;
+    flex-direction: column;
+    align-items: space-between;
+    height: 100%;
+    margin-top: 4px;
+    font-size: 0.8rem;
+    color: var(--muted);
+    gap: 0.3rem;
+    align-self: center;
+}
+
+.mage-info p {
+    font-family: "Asul", serif;
+}
+
+.mage-info h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-family: "Uncial Antiqua", system-ui;
+}
+
+.mage-info h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  font-family: "Asul", serif;
+}
+
+.mage-titles {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+}
+
+.mage-title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.mage-titles >*:not(:last-child)::after {
+  content: " · ";
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  font-weight: bold;
+}
+
+.icon {
+  width: 1.2rem;
+  height: 1.2rem;
+
+  background-color: #FF0000;
+
+  mask: var(--icon) no-repeat center / contain;
+  -webkit-mask: var(--icon) no-repeat center / contain;
+}
+
+.mage-titles p {
+    padding: 0;
+    margin: 0;
+}
+
+.badges {
+  display: flex;
+  gap: 6px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.region {
+  font-size: 0.75rem;
+  color: var(--muted);
+  background: #202938;
+  border: 1px solid #2b3446;
+  padding: 6px 10px;
+  border-radius: 8px;
+  white-space: nowrap;
+  margin-left: auto;
+  margin: auto 0 auto auto;
+}
+
+#no-members {
+    justify-self: center;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  text-align: center;
+  padding: 24px 16px;
+  color: var(--muted);
+  font-size: 0.75rem;
+  width: 100%;
+}
+
+.discord-link {
+  width: fit-content;
+  margin-top: 10px;
+  margin: 10px auto;
+}
+
+.discord-icon {
+  width: 2rem;
+  height: 2rem;
+  fill: var(--muted);
+  opacity: 0.8;
+  transition: 0.2s ease;
+}
+
+.discord-link .discord-icon:hover {
+  opacity: 1;
+  filter: drop-shadow(0 0 6px rgba(227, 172, 20, 0.35));
+  transform: translateY(-1px);
+}
+
+.acolyte .rank-header {
+  background: linear-gradient(-80deg, var(--panel), var(--acolyte));
+}
+
+.mage .rank-header {
+  background: linear-gradient(-80deg, var(--panel), var(--mage));
+}
+
+.senior-mage .rank-header {
+  background: linear-gradient(-80deg, var(--panel), var(--senior-mage));
+}
+
+.high-mage .rank-header {
+  background: linear-gradient(-80deg, var(--panel), var(--high-mage));
+}
+
+.enchanter .rank-header {
+  background: linear-gradient(-80deg, var(--panel), var(--enchanter));
+}
+
+.alchemist .rank-header {
+  background: linear-gradient(-80deg, var(--panel), var(--alchemist));
+}
+
+.artificer .rank-header {
+  background: linear-gradient(-80deg, var(--panel), var(--artificer));
+}
+
+.healer .rank-header {
+  background: linear-gradient(-80deg, var(--panel), var(--healer));
+}
+
+.priest .rank-header {
+  background: linear-gradient(-80deg, var(--panel), var(--priest));
+}
+
+.druid .rank-header {
+  background: linear-gradient(-80deg, var(--panel), var(--druid));
+}
+
+.arcane-knight .rank-header {
+  background: linear-gradient(-80deg, var(--panel), var(--arcane-knight));
+}
+
+.bard .rank-header {
+  background: linear-gradient(-80deg, var(--panel), var(--bard));
+}
+
+.archmage .rank-header {
+  background: linear-gradient(-80deg, var(--panel), var(--archmage));
+}
+
+.grand-enchanter .rank-header {
+  background: linear-gradient(-80deg, var(--panel), var(--grand-enchanter));
+}
+
+.grand-alchemist .rank-header {
+  background: linear-gradient(-80deg, var(--panel), var(--grand-alchemist));
+}
+
+.grand-artificer .rank-header {
+  background: linear-gradient(-80deg, var(--panel), var(--grand-artificer));
+}
+
+.grand-healer .rank-header {
+  background: linear-gradient(-80deg, var(--panel), var(--grand-healer));
+}
+
+.high-priest .rank-header {
+  background: linear-gradient(-80deg, var(--panel), var(--high-priest));
+}
+
+.archdruid .rank-header {
+  background: linear-gradient(-80deg, var(--panel), var(--archdruid));
+}
+
+.arcane-champion .rank-header {
+  background: linear-gradient(-80deg, var(--panel), var(--arcane-champion));
+}
+
+.grand-bard .rank-header {
+  background: linear-gradient(-80deg, var(--panel), var(--grand-bard));
+}
+
+.acolyte .icon {
+  background-color: var(--acolyte);
+}
+
+.mage .icon {
+  background-color: var(--mage);
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.1rem;
+}
+
+.senior-mage .icon {
+  background-color: var(--senior-mage);
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.1rem;
+}
+
+.high-mage .icon {
+  background-color: var(--high-mage);
+}
+
+.enchanter .icon {
+  background-color: var(--enchanter);
+}
+
+.alchemist .icon {
+  background-color: var(--alchemist);
+}
+
+.artificer .icon {
+  background-color: var(--artificer);
+}
+
+.healer .icon {
+  background-color: var(--healer);
+}
+
+.priest .icon {
+  background-color: var(--priest);
+}
+
+.druid .icon {
+  background-color: var(--druid);
+}
+
+.arcane-knight .icon {
+  background-color: var(--arcane-knight);
+}
+
+.bard .icon {
+  background-color: var(--bard);
+}
+
+.archmage .icon {
+  background-color: var(--archmage);
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.1rem;
+}
+
+.grand-enchanter .icon {
+  background-color: var(--grand-enchanter);
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.1rem;
+}
+
+.grand-alchemist .icon {
+  background-color: var(--grand-alchemist);
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.1rem;
+}
+
+.grand-artificer .icon {
+  background-color: var(--grand-artificer);
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.1rem;
+}
+
+.grand-healer .icon {
+  background-color: var(--grand-healer);
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.1rem;
+}
+
+.high-priest .icon {
+  background-color: var(--high-priest);
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.1rem;
+}
+
+.archdruid .icon {
+  background-color: var(--archdruid);
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.1rem;
+}
+
+.arcane-champion .icon {
+  background-color: var(--arcane-champion);
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.1rem;
+}
+
+.grand-bard .icon {
+  background-color: var(--grand-bard);
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.1rem;
+}
+
+.acolyte h3 { color: var(--acolyte); }
+.mage h3 { color: var(--mage); }
+.senior-mage h3 { color: var(--senior-mage); }
+.high-mage h3 { color: var(--high-mage); }
+.enchanter h3 { color: var(--enchanter); }
+.alchemist h3 { color: var(--alchemist); }
+.artificer h3 { color: var(--artificer); }
+.healer h3 { color: var(--healer); }
+.priest h3 { color: var(--priest); }
+.druid h3 { color: var(--druid); }
+.arcane-knight h3 { color: var(--arcane-knight); }
+.bard h3 { color: var(--bard); }
+.archmage h3 { color: var(--archmage); }
+.grand-enchanter h3 { color: var(--grand-enchanter); }
+.grand-alchemist h3 { color: var(--grand-alchemist); }
+.grand-artificer h3 { color: var(--grand-artificer); }
+.grand-healer h3 { color: var(--grand-healer); }
+.high-priest h3 { color: var(--high-priest); }
+.archdruid h3 { color: var(--archdruid); }
+.arcane-champion h3 { color: var(--arcane-champion); }
+.grand-bard h3 { color: var(--grand-bard); }
+
+
+@media (max-width: 670px) {
+  .rank-card {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .rank-card .region {
+    flex-basis: 100%;
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 570px) {
+  .rank-card {
+    gap: 1rem;
+  }
+
+  .mage-info {
+    width: 100%;
+  }
+
+  .mage-titles >*:not(:last-child)::after {
+    content: " · ";
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+    font-weight: bold;
+  }
+
+  .rank-card .region {
+    flex-basis: 100%;
+    margin-top: 0rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .mage-titles p {
+    font-size: 0.7rem;
+  }
+}
