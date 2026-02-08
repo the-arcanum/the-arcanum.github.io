@@ -69,11 +69,15 @@ function loadMembers() {
 
 	var counter = 0;
 	$.each(members, function(i,m) {
-            var imageUrl = "https://render.crafty.gg/3d/bust/" + m.name;
+	        var skinId = (m.skinId != null && m.skinId != "") ? m.skinId : m.name;
+
+            var imageUrl = "https://render.crafty.gg/3d/bust/" + skinId;
             var memberClass = rankClassMap.get(m.rank);
             var memberClassId = memberClass.toLowerCase().trim().replace(/\s+/g, "-");
             var memberRank = m.rank.toLowerCase().trim().replace(/\s+/g, "-");
             var classIcon = classIcons[memberClass];
+
+
 			var card = '<div class="rank-card ' + memberRank + ' ' + memberClassId +'"><div class="rank-header"><span class="shine"></span><h1 class="rank-number">' + memberClass + '</h1>'
 			+ '<img src="' + imageUrl + '"></div><div class="mage-info"><h2>' + m.name + '</h2><div class="mage-titles"><div class="mage-title">'
 			+ '<span class="icon" style="--icon: url(resources/' + classIcon + ')"></span><h3>' + m.rank + '</h3></div><p class="origin">' + m.origin + '</p>'

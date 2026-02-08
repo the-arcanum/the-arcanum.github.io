@@ -1,6 +1,7 @@
 [
   {
     "name": "S_Gryphon",
+    "skinId": "cf38fcb9c655ea0048440783fd39e76bce2728729d320835906054cc67543909",
     "rank": "Acolyte",
     "origin": "Feline",
     "class": "Cleric",
@@ -9,6 +10,7 @@
   },
   {
     "name": "FlyingTooki",
+    "skinId": "3bd6d925a15c775d44840731b5e619497ed61e89b622effc575488a42d08255",
     "rank": "Acolyte",
     "origin": "Feline",
     "class": "Cleric",
