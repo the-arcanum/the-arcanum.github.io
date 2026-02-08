@@ -549,6 +549,7 @@ footer {
   .rank-card {
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
   }
 
   .rank-card .region {
@@ -560,10 +561,6 @@ footer {
 @media (max-width: 570px) {
   .rank-card {
     gap: 1rem;
-  }
-
-  .mage-info {
-    width: 100%;
   }
 
   .mage-titles >*:not(:last-child)::after {
