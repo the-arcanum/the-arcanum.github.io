@@ -324,6 +324,10 @@ header .logo {
 }
 
 .region {
+  margin: auto 0 auto auto;
+}
+
+.region p {
   font-size: 0.75rem;
   color: var(--muted);
   background: #202938;
@@ -331,8 +335,8 @@ header .logo {
   padding: 6px 10px;
   border-radius: 8px;
   white-space: nowrap;
-  margin-left: auto;
-  margin: auto 0 auto auto;
+  width: fit-content;
+  margin: auto;
 }
 
 #no-members {

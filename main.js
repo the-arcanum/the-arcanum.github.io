@@ -84,7 +84,7 @@ function loadMembers() {
 			+ '<p class="class">' + m.class + '</p></div></div>';
 
 			if (m.faction != null && m.faction != "") {
-			  card += '<div class="region">' + m.faction + '</div>';
+			  card += '<div class="region"><p>' + m.faction + '</p></div>';
 			}
 
 			card += '</div>';
