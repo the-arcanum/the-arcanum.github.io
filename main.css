@@ -39,10 +39,12 @@
 html {
   background-color: #000000;
   min-height: 100vh;
+  height: 100%:
 }
 
 body {
   margin: 0;
+  height: 100%;
   font-family: "Asul", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   background-image: url("resources/stars3_slow.gif");
   background-repeat: repeat;
@@ -52,6 +54,9 @@ body {
   min-height: 100vh;
   animation: enter 0.6s ease-out;
   overflow-y: scroll;
+
+  display: flex;
+  flex-direction: column;
 }
 
 @keyframes enter {
@@ -67,6 +72,10 @@ h1, h2 {
 
 h3, h4, p, a, div, footer, header {
   font-family: "Asul", serif;
+}
+
+#page-content {
+    flex: 1; /* takes up remaining space */
 }
 
 header {
@@ -462,7 +471,7 @@ footer {
   flex-direction: column;
   justify-items: center;
   text-align: center;
-  padding: 24px 16px;
+  padding: 16px 16px;
   color: var(--muted);
   font-size: 0.75rem;
   width: 100%;
@@ -473,7 +482,7 @@ footer {
 .discord-link {
   width: fit-content;
   margin-top: 10px;
-  margin: 10px auto;
+  margin: 4px auto;
 }
 
 .discord-icon {
