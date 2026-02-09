@@ -43,13 +43,22 @@ html {
 
 body {
   margin: 0;
-  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background-image: url("resources/stars3.gif");
+  font-family: "Asul", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background-image: url("resources/stars3_slow.gif");
   background-repeat: repeat;
   background-blend-mode: darken;
   background-color: rgba(0,0,0,0.6);
   color: var(--text);
   min-height: 100vh;
+  animation: enter 0.6s ease-out;
+  overflow-y: scroll;
+}
+
+@keyframes enter {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
 }
 
 h1, h2 {
@@ -101,6 +110,13 @@ header .logo {
   width: 50px;
   height: 50px;
   margin-bottom: 6px;
+  animation: sigilGlow 1.4s ease-out 0.3s;
+}
+
+@keyframes sigilGlow {
+  0% { filter: drop-shadow(0 0 0 transparent); }
+  40% { filter: drop-shadow(0 0 10px rgba(227,172,20,0.5)); }
+  100% { filter: none; }
 }
 
 .tabs {
@@ -116,6 +132,7 @@ header .logo {
 }
 
 .tab {
+  position: relative;
   padding: 6px 10px;
   font-size: 0.85rem;
   color: var(--muted);
@@ -127,6 +144,28 @@ header .logo {
 .tab:hover {
   color: var(--accent);
 }
+
+.tab:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.tab::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background: currentColor;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.tab.active::after {
+  transform: scaleX(1);
+}
+
 
 .tab.acolyte:hover {
   color: var(--acolyte);
@@ -150,32 +189,32 @@ header .logo {
 
 .tab.active {
   color: var(--accent);
-  box-shadow: inset 0 -2px 0 var(--accent);
+  text-shadow: 0 0 10px var(--accent);
 }
 
 .tab.acolyte.active {
   color: var(--acolyte);
-  box-shadow: inset 0 -2px 0 var(--acolyte);
+  text-shadow: 0 0 10px var(--accent);
 }
 
 .tab.mage.active {
   color: var(--mage);
-  box-shadow: inset 0 -2px 0 var(--mage);
+  text-shadow: 0 0 10px var(--mage);
 }
 
 .tab.senior-mage.active {
   color: var(--senior-mage);
-  box-shadow: inset 0 -2px 0 var(--senior-mage);
+  text-shadow: 0 0 10px var(--senior-mage);
 }
 
 .tab.high-mage.active {
   color: var(--high-mage);
-  box-shadow: inset 0 -2px 0 var(--high-mage);
+  text-shadow: 0 0 10px var(--high-mage);
 }
 
 .tab.archmage.active {
   color: var(--archmage);
-  box-shadow: inset 0 -2px 0 var(--archmage);
+  text-shadow: 0 0 10px var(--archmage);
 }
 
 .tab a {
@@ -189,31 +228,69 @@ header .logo {
 .container {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: 1rem;
   max-width: 900px;
   margin: 0 auto;
   padding: 16px;
 }
 
 .rank-card {
-  display: flex;
-  background: linear-gradient(
-                180deg,
-                rgba(22, 27, 34, 0.7),
-                rgba(18, 23, 34, 0.7)
-              );
-  border: 1px solid #202938;
+  padding: 0;
   border-radius: 14px;
-  padding: 14px 16px;
-  margin-bottom: 12px;
-
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  transition: 0.6s ease;
+  transition: 0.3s ease;
 }
 
 .rank-card:hover {
-    transform: translateY(-3px);
+   transform: translateY(-2px);
+}
+
+.rank-inner {
+  display: flex;
+  opacity: 0;
+  transform: translateY(6px);
+  animation: cardIn 1s ease forwards;
+
+  background: linear-gradient(
+                  180deg,
+                  rgba(22, 27, 34, 0.7),
+                  rgba(18, 23, 34, 0.7)
+                );
+  border: 1px solid #202938;
+  border-radius: 14px;
+  backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+
+  padding: 14px 16px;
+}
+
+@keyframes cardIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.rank-inner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0;
+  background: radial-gradient(
+    circle at top left,
+    color-mix(in srgb, var(--rank-color) 35%, transparent),
+    transparent 60%
+  );
+  transition: opacity 0.7s ease;
+  pointer-events: none;
+}
+
+.rank-inner:hover::before {
+  opacity: 0.7;
+}
+
+.rank-card h3 {
+  color: var(--rank-color);
 }
 
 .rank-header {
@@ -226,12 +303,9 @@ header .logo {
   padding-left: 0.2rem;
   margin-right: 1rem;
   border-radius: 0.4rem;
-  background: linear-gradient(-80deg, var(--panel), #FFD700);
+  background: linear-gradient(-80deg, var(--panel), var(--rank-color));
 }
 
-.acolyte .rank-header {
-    background: linear-gradient(-80deg, var(--panel), var(--acolyte));
-}
 
 .rank-header img {
   height: 5.75rem;
@@ -270,6 +344,7 @@ header .logo {
   margin: 0;
   font-size: 1.5rem;
   font-weight: 600;
+  letter-spacing: 0.04em;
   font-family: "Uncial Antiqua", system-ui;
 }
 
@@ -279,6 +354,11 @@ header .logo {
   font-weight: 600;
   font-family: "Asul", serif;
 }
+
+.mage-info p {
+  opacity: 0.85;
+}
+
 
 .mage-titles {
     display: flex;
@@ -305,10 +385,15 @@ header .logo {
   width: 1.2rem;
   height: 1.2rem;
 
-  background-color: #FF0000;
+  background-color: var(--rank-color);
 
   mask: var(--icon) no-repeat center / contain;
   -webkit-mask: var(--icon) no-repeat center / contain;
+  transition: filter 0.3s ease;
+}
+
+.rank-inner:hover .icon {
+  filter: drop-shadow(0 0 4px var(--rank-color));
 }
 
 .mage-titles p {
@@ -340,7 +425,36 @@ header .logo {
 }
 
 #no-members {
-    justify-self: center;
+    opacity: 0;
+    transform: translateY(2px);
+    text-align: center;
+}
+
+.show-animate {
+    animation: fadeSlideIn 0.6s forwards;
+}
+
+.rank-ellipsis {
+    opacity: 0;
+    display: inline-block;
+    transition: opacity 0.6s ease 0.8s, transform 0.6s ease 0.8s;
+    animation-delay: 0.7s;
+}
+
+#no-members.show-animate .rank-ellipsis {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes fadeSlideIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInSlow {
+  to { opacity: 1; }
 }
 
 footer {
@@ -352,6 +466,8 @@ footer {
   color: var(--muted);
   font-size: 0.75rem;
   width: 100%;
+  opacity: 0%;
+  transition: opacity 0.6s ease;
 }
 
 .discord-link {
@@ -575,31 +691,8 @@ footer {
   margin-right: 0.1rem;
 }
 
-.acolyte h3 { color: var(--acolyte); }
-.mage h3 { color: var(--mage); }
-.senior-mage h3 { color: var(--senior-mage); }
-.high-mage h3 { color: var(--high-mage); }
-.enchanter h3 { color: var(--enchanter); }
-.alchemist h3 { color: var(--alchemist); }
-.artificer h3 { color: var(--artificer); }
-.healer h3 { color: var(--healer); }
-.priest h3 { color: var(--priest); }
-.druid h3 { color: var(--druid); }
-.arcane-knight h3 { color: var(--arcane-knight); }
-.bard h3 { color: var(--bard); }
-.archmage h3 { color: var(--archmage); }
-.grand-enchanter h3 { color: var(--grand-enchanter); }
-.grand-alchemist h3 { color: var(--grand-alchemist); }
-.grand-artificer h3 { color: var(--grand-artificer); }
-.grand-healer h3 { color: var(--grand-healer); }
-.high-priest h3 { color: var(--high-priest); }
-.archdruid h3 { color: var(--archdruid); }
-.arcane-champion h3 { color: var(--arcane-champion); }
-.grand-bard h3 { color: var(--grand-bard); }
-
-
 @media (max-width: 670px) {
-  .rank-card {
+  .rank-inner {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
@@ -609,7 +702,7 @@ footer {
     margin-right: 0;
   }
 
-  .rank-card .region {
+  .rank-inner .region {
     flex-basis: 100%;
     margin-top: 1rem;
   }
@@ -620,7 +713,7 @@ footer {
 }
 
 @media (max-width: 570px) {
-  .rank-card {
+  .rank-inner {
     gap: 1rem;
   }
 
@@ -631,9 +724,19 @@ footer {
     font-weight: bold;
   }
 
-  .rank-card .region {
+  .rank-inner .region {
     flex-basis: 100%;
     margin-top: 0rem;
+  }
+
+  #no-members {
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+
+  footer {
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 }
 

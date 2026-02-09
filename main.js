@@ -58,41 +58,58 @@ $.getJSON("members.json", function(json) {
 
 	members = sortMembers(members);
 
-    loadMembers();
+    renderMembers();
 });
 
 
-function loadMembers() {
-	$("#members").empty();
+function renderMembers(filteredMembers = members) {
+    const container = $("#members");
+    container.empty();
 
-	document.getElementById("members").style.display = "none";
+    container.css("opacity", 0);
 
-	var counter = 0;
-	$.each(members, function(i,m) {
-	        var skinId = (m.skinId != null && m.skinId != "") ? m.skinId : m.name;
+    filteredMembers.forEach((m, i) => {
+        const skinId = m.skinId || m.name;
+        const imageUrl = "https://render.crafty.gg/3d/bust/" + skinId;
+        const memberClass = rankClassMap.get(m.rank);
+        const memberClassId = memberClass.toLowerCase().replace(/\s+/g, "-");
+        const memberRank = m.rank.toLowerCase().replace(/\s+/g, "-");
+        const classIcon = classIcons[memberClass];
 
-            var imageUrl = "https://render.crafty.gg/3d/bust/" + skinId;
-            var memberClass = rankClassMap.get(m.rank);
-            var memberClassId = memberClass.toLowerCase().trim().replace(/\s+/g, "-");
-            var memberRank = m.rank.toLowerCase().trim().replace(/\s+/g, "-");
-            var classIcon = classIcons[memberClass];
-
-
-			var card = '<div class="rank-card ' + memberRank + ' ' + memberClassId +'"><div class="rank-header"><span class="shine"></span><h1 class="rank-number">' + memberClass + '</h1>'
-			+ '<img src="' + imageUrl + '"></div><div class="mage-info"><h2>' + m.name + '</h2><div class="mage-titles"><div class="mage-title">'
-			+ '<span class="icon" style="--icon: url(resources/' + classIcon + ')"></span><h3>' + m.rank + '</h3></div><p class="origin">' + m.origin + '</p>'
-			+ '<p class="class">' + m.class + '</p></div></div>';
-
-			if (m.faction != null && m.faction != "") {
-			  card += '<div class="region"><p>' + m.faction + '</p></div>';
-			}
-
-			card += '</div>';
-
-            $("#members").append(card);
+        const card = `
+            <div class="rank-card ${memberRank} ${memberClassId}" style="--rank-color: var(--${memberRank}); animation-delay: ${i*40}ms;">
+                <div class="rank-inner">
+                    <div class="rank-header">
+                        <span class="shine"></span>
+                        <h1 class="rank-number">${memberClass}</h1>
+                        <img src="${imageUrl}">
+                    </div>
+                    <div class="mage-info">
+                        <h2>${m.name}</h2>
+                        <div class="mage-titles">
+                            <div class="mage-title">
+                                <span class="icon" style="--icon: url(resources/${classIcon})"></span>
+                                <h3>${m.rank}</h3>
+                            </div>
+                            <p class="origin">${m.origin}</p>
+                            <p class="class">${m.class}</p>
+                        </div>
+                    </div>
+                    ${m.faction ? `<div class="region"><p>${m.faction}</p></div>` : ""}
+                </div>
+            </div>
+        `;
+        container.append(card);
     });
-	document.getElementById("members").style.display = "flex";
-	document.getElementById("footer").style.display = "flex";
+
+    const memberElements = document.querySelectorAll("#members .rank-inner");
+
+    memberElements.forEach((card, index) => {
+        card.style.animationDelay = `${index * 0.08}s`;
+    });
+
+    container.css("opacity", 1);
+    $("#footer").css("opacity", 1);
 }
 
 function filterMembersByRank(rank, tabElement) {
@@ -108,36 +125,43 @@ function filterMembersByRank(rank, tabElement) {
   }
 }
 
-// Show all members
 function showAllMembers(tabElement) {
-  setActiveTab(tabElement);
-  const members = document.getElementById("members").children;
-  for (let m of members) m.style.display = "flex";
-
-  document.getElementById("no-members").style.display = "none";
+    setActiveTab(tabElement);
+    renderMembers(members);
+    showNoMembers(false);
 }
 
 function showByClass(className, tabElement) {
-  setActiveTab(tabElement);
-  const memberElements = document.getElementById("members").children;
+    setActiveTab(tabElement);
+    const filtered = members.filter(m => {
+        const cls = rankClassMap.get(m.rank);
+        return cls.toLowerCase().replace(/\s+/g, "-") === className;
+    });
+    renderMembers(filtered);
 
-  var shownCount = 0;
-
-  for (let m of memberElements) {
-    if (m.classList.contains(className)) {
-      m.style.display = "flex";
-      shownCount++;
-    } else {
-      m.style.display = "none";
-    }
-  }
-
-  document.getElementById("no-members").style.display = shownCount == 0 ? "block" : "none";
+    showNoMembers(filtered.length === 0);
 }
 
 function setActiveTab(tabElement) {
   document.querySelectorAll(".tabs .tab").forEach(t => t.classList.remove("active"));
   tabElement.classList.add("active");
+}
+
+function showNoMembers(show) {
+    const noMembersEl = document.getElementById("no-members");
+
+    if (show) {
+        noMembersEl.style.display = "block";
+        noMembersEl.classList.remove("show-animate");
+
+        // Force reflow so animation can restart
+        void noMembersEl.offsetWidth;
+
+        noMembersEl.classList.add("show-animate");
+    } else {
+        noMembersEl.style.display = "none";
+        noMembersEl.classList.remove("show-animate");
+    }
 }
 
 function sortMembers(members) {
