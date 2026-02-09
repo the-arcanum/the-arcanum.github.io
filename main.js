@@ -151,16 +151,20 @@ function showNoMembers(show) {
     const noMembersEl = document.getElementById("no-members");
 
     if (show) {
-        noMembersEl.style.display = "block";
-        noMembersEl.classList.remove("show-animate");
+        if (noMembersEl.style.display != "block") {
+            noMembersEl.style.display = "block";
+            noMembersEl.classList.remove("show-animate");
 
-        // Force reflow so animation can restart
-        void noMembersEl.offsetWidth;
+            // Force reflow so animation can restart
+            void noMembersEl.offsetWidth;
 
-        noMembersEl.classList.add("show-animate");
+            noMembersEl.classList.add("show-animate");
+        }
     } else {
+      if (noMembersEl.style.display != "none") {
         noMembersEl.style.display = "none";
         noMembersEl.classList.remove("show-animate");
+      }
     }
 }
 
