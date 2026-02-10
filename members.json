@@ -122,12 +122,20 @@
     "lastUpdate": "1770532743"
   },
   {
-    "name": "DeepThougt68",
-    "skinId": "c3e5d6fc3fbcdd0fba7fcd922d8a3214ab18f589ee5555a645ce439b1495911c",
+    "name": "Rikihungry",
     "rank": "Acolyte",
     "origin": "Shulk",
     "class": "Cleric",
     "faction": "",
     "lastUpdate": "1770532746"
+  },
+  {
+    "name": "DeepThougt68",
+    "skinId": "c3e5d6fc3fbcdd0fba7fcd922d8a3214ab18f589ee5555a645ce439b1495911c",
+    "rank": "Acolyte",
+    "origin": "Feline",
+    "class": "Cleric",
+    "faction": "",
+    "lastUpdate": "1770532759"
   }
 ]
