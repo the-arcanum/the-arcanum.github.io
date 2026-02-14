@@ -22,7 +22,7 @@
     "rank": "Acolyte",
     "origin": "Elytrian",
     "class": "Explorer",
-    "faction": "Yumegenso",
+    "faction": "Icaria",
     "lastUpdate": "1770532690"
   },
   {
@@ -136,7 +136,24 @@
     "rank": "Acolyte",
     "origin": "Feline",
     "class": "Cleric",
-    "faction": "",
+    "faction": "The Arcanum",
     "lastUpdate": "1770532759"
+  },
+  {
+    "name": "_Geji",
+    "rank": "Acolyte",
+    "origin": "Enderian",
+    "class": "Warrior",
+    "faction": "Kingdom of Vise",
+    "lastUpdate": "1770532779"
+  },
+  {
+    "name": "RiddleMeThi5",
+    "skinId": "2f61a307d6f1d7bf1bbcf70f594778d8a50222923921e4bf8b381277e533e7a1",
+    "rank": "Acolyte",
+    "origin": "Enderian",
+    "class": "Cleric",
+    "faction": "",
+    "lastUpdate": "1770532789"
   }
 ]
