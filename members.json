@@ -2,20 +2,20 @@
   {
     "name": "S_Gryphon",
     "skinId": "cf38fcb9c655ea0048440783fd39e76bce2728729d320835906054cc67543909",
-    "rank": "Acolyte",
+    "rank": "Mage",
     "origin": "Feline",
     "class": "Cleric",
     "faction": "The Arcanum",
-    "lastUpdate": "1770532681"
+    "lastUpdate": "1771193827"
   },
   {
     "name": "FlyingTooki",
     "skinId": "3bd6d925a15c775d44840731b5e619497ed61e89b622effc575488a42d08255",
-    "rank": "Acolyte",
+    "rank": "Mage",
     "origin": "Feline",
     "class": "Cleric",
     "faction": "The Arcanum",
-    "lastUpdate": "1770532687"
+    "lastUpdate": "1771193870"
   },
   {
     "name": "Coff3W",
@@ -36,11 +36,11 @@
   },
   {
     "name": "Shadedplace",
-    "rank": "Acolyte",
+    "rank": "Mage",
     "origin": "Feline",
     "class": "Cleric",
     "faction": "Chatoyance",
-    "lastUpdate": "1770532704"
+    "lastUpdate": "1771193898"
   },
   {
     "name": "Domyino",
@@ -92,11 +92,11 @@
   },
   {
     "name": "Shxnji",
-    "rank": "Acolyte",
+    "rank": "Senior Mage",
     "origin": "Phantom",
     "class": "Rogue",
     "faction": "Inter Dimensional Emporium",
-    "lastUpdate": "1770532732"
+    "lastUpdate": "1771193812"
   },
   {
     "name": "Trunle",
@@ -108,11 +108,11 @@
   },
   {
     "name": "Lorrents",
-    "rank": "Acolyte",
+    "rank": "Mage",
     "origin": "Feline",
     "class": "Cleric",
     "faction": "",
-    "lastUpdate": "1770532739"
+    "lastUpdate": "1771193880"
   },
   {
     "name": "LyraTheDrunk",
@@ -133,11 +133,11 @@
   {
     "name": "DeepThougt68",
     "skinId": "c3e5d6fc3fbcdd0fba7fcd922d8a3214ab18f589ee5555a645ce439b1495911c",
-    "rank": "Acolyte",
+    "rank": "Mage",
     "origin": "Feline",
     "class": "Cleric",
     "faction": "The Arcanum",
-    "lastUpdate": "1770532759"
+    "lastUpdate": "1771193838"
   },
   {
     "name": "_Geji",
