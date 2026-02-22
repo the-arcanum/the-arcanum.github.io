@@ -2,7 +2,7 @@
   {
     "name": "S_Gryphon",
     "skinId": "cf38fcb9c655ea0048440783fd39e76bce2728729d320835906054cc67543909",
-    "rank": "Mage",
+    "rank": "Archmage",
     "origin": "Feline",
     "class": "Cleric",
     "faction": "The Arcanum",
@@ -32,7 +32,8 @@
     "origin": "Feline",
     "class": "Cleric",
     "faction": "Treats and Tonics",
-    "lastUpdate": "1770532694"
+    "lastUpdate": "1770532694",
+    "status": "dead"
   },
   {
     "name": "Shadedplace",
@@ -72,7 +73,8 @@
     "origin": "Arachnid",
     "class": "Cleric",
     "faction": "Greatnest",
-    "lastUpdate": "1770532721"
+    "lastUpdate": "1770532721",
+    "status": "dead"
   },
   {
     "name": "JMesh",
@@ -84,11 +86,11 @@
   },
   {
     "name": "darugona",
-    "rank": "Acolyte",
+    "rank": "Mage",
     "origin": "Feline",
     "class": "Cleric",
     "faction": "Chatoyance",
-    "lastUpdate": "1770532728"
+    "lastUpdate": "1771731377"
   },
   {
     "name": "Shxnji",
@@ -116,11 +118,11 @@
   },
   {
     "name": "LyraTheDrunk",
-    "rank": "Acolyte",
+    "rank": "Mage",
     "origin": "Shulk",
     "class": "Explorer",
     "faction": "Nidavellir",
-    "lastUpdate": "1770532743"
+    "lastUpdate": "1771731418"
   },
   {
     "name": "Edgey",
@@ -141,11 +143,11 @@
   },
   {
     "name": "_Geji",
-    "rank": "Acolyte",
+    "rank": "Mage",
     "origin": "Enderian",
     "class": "Warrior",
     "faction": "Kingdom of Vise",
-    "lastUpdate": "1770532779"
+    "lastUpdate": "1771731398"
   },
   {
     "name": "RiddleMeThi5",
@@ -155,5 +157,13 @@
     "class": "Cleric",
     "faction": "",
     "lastUpdate": "1770532789"
+  },
+  {
+    "name": "frenchfry041806",
+    "rank": "Mage",
+    "origin": "Feline",
+    "class": "Cleric",
+    "faction": "Wonderland",
+    "lastUpdate": "1771731411"
   }
 ]
