@@ -322,6 +322,16 @@ header .logo {
   transform: translateY(-0.75rem);
 }
 
+.dead {
+  filter: grayscale(0.8);
+  opacity: 0.5;
+}
+
+.dead .rank-header img{
+  filter: grayscale(0.5);
+}
+
+
 .rank-number {
   font-size: 1.3rem;
   line-height: 1.35rem;

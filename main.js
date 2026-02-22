@@ -75,9 +75,10 @@ function renderMembers(filteredMembers = members) {
         const memberClassId = memberClass.toLowerCase().replace(/\s+/g, "-");
         const memberRank = m.rank.toLowerCase().replace(/\s+/g, "-");
         const classIcon = classIcons[memberClass];
+        const status = m.status == null || m.status == "" ? "alive" : m.status;
 
         const card = `
-            <div class="rank-card ${memberRank} ${memberClassId}" style="--rank-color: var(--${memberRank}); animation-delay: ${i*40}ms;">
+            <div class="rank-card ${memberRank} ${memberClassId} ${status}" style="--rank-color: var(--${memberRank}); animation-delay: ${i*40}ms;">
                 <div class="rank-inner">
                     <div class="rank-header">
                         <span class="shine"></span>
