@@ -61,11 +61,11 @@
   },
   {
     "name": "JennyPrice",
-    "rank": "Acolyte",
+    "rank": "Senior Mage",
     "origin": "Feline",
     "class": "Rogue",
     "faction": "Chatoyance",
-    "lastUpdate": "1770532718"
+    "lastUpdate": "1772335310"
   },
   {
     "name": "ClownstarPig",
@@ -94,11 +94,11 @@
   },
   {
     "name": "Shxnji",
-    "rank": "Enchanter",
+    "rank": "Grand Enchanter",
     "origin": "Phantom",
     "class": "Rogue",
     "faction": "Inter Dimensional Emporium",
-    "lastUpdate": "1771814346"
+    "lastUpdate": "1772335249"
   },
   {
     "name": "Trunle",
@@ -110,19 +110,19 @@
   },
   {
     "name": "Lorrents",
-    "rank": "Senior Mage",
+    "rank": "Grand Healer",
     "origin": "Feline",
     "class": "Cleric",
     "faction": "",
-    "lastUpdate": "1771814323"
+    "lastUpdate": "1772335268"
   },
   {
     "name": "LyraTheDrunk",
-    "rank": "Senior Mage",
+    "rank": "Priest",
     "origin": "Shulk",
     "class": "Explorer",
     "faction": "Nidavellir",
-    "lastUpdate": "1771814334"
+    "lastUpdate": "1772335323"
   },
   {
     "name": "Edgey",
